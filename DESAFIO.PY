@@ -1,3 +1,5 @@
+import re
+
 
 def inverter(string):
     palavras = string.split()
@@ -40,6 +42,21 @@ def expandir_palindromo(frase, inicio, fim):
     return frase[inicio + 1:fim]
 
 
+def capitalize_primeiras_letras_frases(string):
+
+    frases = re.split(r'(?<=[.!?])\s+', string)
+    frases_capitalizadas = []
+
+    for frase in frases:
+        if len(frase) > 0:
+
+            frase_capitalizada = frase[0].capitalize() + frase[1:]
+            frases_capitalizadas.append(frase_capitalizada)
+
+    string_capitalizada = ' '.join(frases_capitalizadas)
+    return string_capitalizada
+
+
 def main():
     Entrada = 'Hello World OpenAL is amazing'
     Saida = inverter(Entrada)
@@ -50,6 +67,9 @@ def main():
     Entrada3 = 'babad'
     Saida3 = encontrar_substring_palindroma(Entrada3)
     print(Saida3)
+    Entrada4 = "hello. how are you? i'm fine,thank you"
+    Saida4 = capitalize_primeiras_letras_frases(Entrada4)
+    print(Saida4)
 
 
 main()
