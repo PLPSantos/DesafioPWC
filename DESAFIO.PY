@@ -57,6 +57,13 @@ def capitalize_primeiras_letras_frases(string):
     return string_capitalizada
 
 
+def check_palindrome(entrada):
+    entrada = entrada.lower().replace(" ", "")
+    inverso = entrada[::-1]
+
+    return entrada == inverso
+
+
 def main():
     Entrada = 'Hello World OpenAL is amazing'
     Saida = inverter(Entrada)
@@ -70,6 +77,9 @@ def main():
     Entrada4 = "hello. how are you? i'm fine,thank you"
     Saida4 = capitalize_primeiras_letras_frases(Entrada4)
     print(Saida4)
+    Entrada5 = 'racecar'
+    Saida5 = check_palindrome(Entrada5)
+    print(Saida5)
 
 
 main()
